@@ -5,24 +5,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # Using a specific version for stability
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        # This username must be exactly ArtemSBulgakov
         uses: ArtemSBulgakov/buildozer-action@v1
         with:
           command: buildozer android debug
-          buildozer_version: master
+          buildozer_version: stable  # Using stable version to avoid bugs
 
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: JioShare-APK
-          path: bin/*.apk
-      - name: Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: JioShare-APK
