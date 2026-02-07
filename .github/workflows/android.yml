@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        # Note the correct spelling: ArtemSBulgakov
+        # This username must be exactly ArtemSBulgakov
         uses: ArtemSBulgakov/buildozer-action@v1
         with:
           command: buildozer android debug
@@ -22,7 +22,6 @@ jobs:
         with:
           name: JioShare-APK
           path: bin/*.apk
-
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
